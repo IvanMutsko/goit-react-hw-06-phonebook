@@ -10,7 +10,7 @@ import {
 import { useSelector, useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
 import { formatterNumber } from '../../utils/formatterNumber';
-import { addContact } from '../../redux/contactsSlice';
+import { addContact, getContacts } from '../../redux/contactsSlice';
 
 const schema = yup.object().shape({
   name: yup.string().min(2, 'Too Short!').max(70, 'Too Long!').required(),
@@ -23,7 +23,7 @@ const schema = yup.object().shape({
 const initialValues = { name: '', number: '' };
 
 const ContactForm = () => {
-  const contacts = useSelector(store => store.contacts.contacts);
+  const contacts = useSelector(getContacts);
 
   const dispatch = useDispatch();
 

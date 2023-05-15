@@ -1,10 +1,10 @@
 import { Formik } from 'formik';
 import { FormElement, FieldElement, FieldTitle } from './Filter.styled';
 import { useSelector, useDispatch } from 'react-redux';
-import { setFilter } from 'redux/filterSlice';
+import { setFilter, getFilter } from 'redux/filterSlice';
 
 const Filter = () => {
-  const filter = useSelector(store => store.filter);
+  const filter = useSelector(getFilter);
   const dispatch = useDispatch();
 
   const onChangeFilterInput = evt => {
